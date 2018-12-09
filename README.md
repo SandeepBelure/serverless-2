@@ -7,5 +7,5 @@ Super simple next.js app deployed as AWS Lambda using serverless framework.
 ```
   npm i
   npm run build
-  sls offline start ----skipCacheInvalidation
+  sls offline start --skipCacheInvalidation
 ```
