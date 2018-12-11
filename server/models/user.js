@@ -21,6 +21,10 @@ class User {
     let newUser = new this.User(user);
     return newUser.save();
   }
+
+  getByEmail(email) {
+    return this.User.findOne({ email });
+  }
 }
 
 module.exports = User;
