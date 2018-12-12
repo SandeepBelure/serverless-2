@@ -1,5 +1,6 @@
 const { Router } = require('express');
 const PostModel = require('../models/post');
+const authMiddleware = require('../middlewares/authMiddleware');
 
 const router = Router();
 
@@ -25,7 +26,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-router.post('/', async (req, res) => {
+router.post('/', [authMiddleware], async (req, res) => {
   try {
     let { body } = req;
     let Post = new PostModel();
