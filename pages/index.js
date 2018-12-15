@@ -15,14 +15,9 @@ const Index = ({ posts }) => (
 Index.getInitialProps = async ({ req }) => {
   let { serverRuntimeConfig, publicRuntimeConfig } = getConfig();
   let baseUrl = serverRuntimeConfig.api || publicRuntimeConfig.api;
-  let url = `${baseUrl}/posts`;
-  console.log('baseUrl', url);
+  let url = `${baseUrl}/post  `;
   const res = await fetch(url);
-
   const data = await res.json();
-
-  console.log('show dta fetched. count: ${data.length}', data);
-
   return {
     posts: data
   };
