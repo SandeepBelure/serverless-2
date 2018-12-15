@@ -9,6 +9,7 @@ router.get('/', async (req, res) => {
     let { limit, skip } = req.query;
     let Post = new PostModel();
     let result = await Post.get({ limit, skip });
+    console.log('result', result);
     res.send(result);
   } catch (e) {
     res.send(e);
@@ -26,7 +27,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-router.post('/', [authMiddleware], async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     let { body } = req;
     let Post = new PostModel();
