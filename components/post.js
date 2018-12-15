@@ -1,5 +1,8 @@
 import Link from 'next/link';
 import styled from 'styled-components';
+import htmlToReact from 'html-to-react';
+
+const Parser = new htmlToReact.Parser();
 
 const Post = ({ post: { _id, text, title, createdBy, createdAt } }) => {
   return (
@@ -9,7 +12,7 @@ const Post = ({ post: { _id, text, title, createdBy, createdAt } }) => {
           <Title> {title} </Title>
         </Link>
       </h3>
-      <div> {text}</div>
+      <div> {Parser.parse(text)}</div>
       <div> {createdBy} </div>
     </div>
   );
